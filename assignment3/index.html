@@ -5,47 +5,6 @@
     <title>Assignment 3</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
     <link rel="stylesheet" href="style.css">
-    <style>
-body {
-    background-color: #bdc3c7;
-}
-h1{
-    color: #9b59b6;
-}
-.todo {
-    margin: 0.5rem;
-    background-color: white;
-    color: black;
-    display: flex;
-    justify-content: space-evenly;
-    font-size: 1.5rem;
-    align-items: center;
-    transition: all 0.5s ease;
-  }
-  .trash-btn,
-  .complete-btn {
-    background-color: rgb(0, 0, 0);
-    color: white;
-    font-size: 1rem;
-    padding: 1rem;
-    border: none;
-    cursor: pointer;
-  }
-  .complete-btn {
-    background-color: rgb(81, 192, 81);
-  }
-  .todo-item {
-    padding: 0 0.5rem;
-  }
-  .fa-trash,
-  .fa-check {
-    pointer-events: none;
-  }
-  .completed {
-    text-decoration: line-through;
-    opacity: 0.5;
-  }
-</style>
 </head>
 <body>
     <div class="message">
@@ -72,49 +31,6 @@ h1{
       <ul class="todo-list"></ul>
     </div>
 
-    <script type="text/javascript">
-  const todoInput = document.querySelector(".todo-input ");
-const todoButton = document.querySelector(".todo-button ");
-const todoList = document.querySelector(".todo-list "); 
-const message = document.querySelector(".message");
-
-todoButton.addEventListener('click', addTodo);
-todoList.addEventListener('click', deleteCheck);
-
-function addTodo(event) {
-    event.preventDefault();
-    const todoDiv = document.createElement("div");
-    todoDiv.classList.add("todo");
-    const newTodo = document.createElement("li");
-    newTodo.innerText = todoInput.value;
-    newTodo.classList.add("todo-item");
-    todoDiv.appendChild(newTodo);
-    const completedButton = document.createElement("button");
-    completedButton.innerHTML = '<i class= "fas fa-check"></i>';
-    completedButton.classList.add("complete-btn");
-    todoDiv.appendChild(completedButton);
-    const trashButton = document.createElement("button");
-    trashButton.innerHTML = '<i class= "fas fa-trash"></i>';
-    trashButton.classList.add("trash-btn");
-    todoDiv.appendChild(trashButton);
-    todoList.appendChild(todoDiv);
-    todoInput.value = "";
-}
-
-function deleteCheck(e){
-    const item = e.target;
-    if (item.classList[0] === "trash-btn") {
-        const todo = item.parentElement; 
-        todo.classList.add("fall");
-        todo.addEventListener("transitionend", function () {
-          todo.remove();
-        });
-      }
-      if (item.classList[0] === "complete-btn") {
-        const todo = item.parentElement;
-        todo.classList.toggle("completed");
-      }
-}
-  </script> 
+    <script src="app.js"></script>
   </body>
 </html>
